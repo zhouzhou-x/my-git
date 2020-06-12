@@ -1,0 +1,18 @@
+﻿生成启动时间为 2020/6/12 12:30:39。
+     1>项目“D:\my-git\Project11\Project11\Project11.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\vs\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt test.cpp
+         test.cpp
+     1>d:\my-git\project11\project11\test.cpp(138): warning C4018: “<=”: 有符号/无符号不匹配
+     1>d:\my-git\project11\project11\test.cpp(144): warning C4018: “>”: 有符号/无符号不匹配
+     1>d:\my-git\project11\project11\test.cpp(176): warning C4018: “<=”: 有符号/无符号不匹配
+     1>d:\my-git\project11\project11\test.cpp(252): warning C4018: “<”: 有符号/无符号不匹配
+     1>d:\my-git\project11\project11\test.cpp(70): warning C4715: “String::operator[]”: 不是所有的控件路径都返回值
+       Link:
+         D:\vs\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\my-git\Project11\Debug\Project11.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\my-git\Project11\Debug\Project11.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\my-git\Project11\Debug\Project11.lib" /MACHINE:X86 Debug\test.obj
+         Project11.vcxproj -> D:\my-git\Project11\Debug\Project11.exe
+     1>已完成生成项目“D:\my-git\Project11\Project11\Project11.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:01.05

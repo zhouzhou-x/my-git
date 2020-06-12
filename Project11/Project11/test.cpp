@@ -1,6 +1,7 @@
 #pragma warning(disable:4996)
 #include <string>
 #include <iostream>
+#include <ostream>
 
 class String{
 public:
@@ -48,7 +49,7 @@ public:
 		}
 		return *this;
 	}
-	char* c_str(){
+	const char* c_str() const{
 		return _str;
 	}
 	~String(){
@@ -181,7 +182,7 @@ public:
 	//n<size 修改size
 	//size<n<capacity 修改 size + 赋值
 	//n>capacity 增容  修改size 加赋值
-	void resize(size_t n,const char& ch){
+	void resize(size_t n, const char& ch = '\0'){
 		if(n > _capacity){
 			reserve(n);
 			}
@@ -191,20 +192,48 @@ public:
 		_size = n;
 		_str[_size] = '\0';
 	}
+	//查找字符串
+	size_t find(const char* str){
+		char* start = strstr(_str, str);
+		if (start){
+			return start - _str;
+		}
+		return -1;
+	}
+	//
 private:
 	char* _str;
 	size_t _size;
 	size_t _capacity;
 };
-//范围forfor(const auto& ch : str)
+//范围for  for(const auto& ch : str)
 //底层就是迭代器
-
+std::ostream& operator<<(std::ostream& _cout,const String& str){
+	for (const auto& ch:str)
+		_cout << ch;
+	return _cout;
+}
+String operator+(const String& str, const char& ch){//加一个直接字符串
+	String tmp(str);
+	tmp += ch;
+	return tmp;
+}
+String operator+(const String& str,const char* str1){//加一个直接字符串
+	String tmp(str);
+	tmp += str1;
+	return tmp;
+}
+String operator+(const String& str,const String& str1){//加一个类型
+	String tmp(str);
+	tmp += str1;
+	return tmp;
+}
 void test(){
 	//库里的实验会创建空字符串
 	String str1 = "123445";
 	String str2 = "123445";
-	char* ptr = str1.c_str();
-	char* ptr2 = str2.c_str();
+	const char* ptr = str1.c_str();
+	const char* ptr2 = str2.c_str();
 	std::cout << ptr << std::endl;//字符串指针输出的时候不输出地址 输出内容
 	std::cout << ptr2 << std::endl;
 
@@ -213,8 +242,8 @@ void test1(){
 	String str = "add";
 	String str1(str);
 	str1 = "132";
-	char* ptr = str.c_str();
-	char* ptr2 = str1.c_str();
+	const char* ptr = str.c_str();
+	const char* ptr2 = str1.c_str();
 	std::cout << ptr << std::endl;//字符串指针输出的时候不输出地址 输出内容
 	std::cout << ptr2 << std::endl;
 }
@@ -274,8 +303,37 @@ void test9(){
 	s.resize(10,'a');
 	std::cout << s.c_str() << std::endl;
 }
+void test10(){
+	String s("123456");
+	int pos = s.find("5");
+	std::cout << pos << std::endl;
+}
+void test11(){
+	String s("123");
+	std::cout << s << "ji" << std::endl;
+	std::string s1("123");
+	std:: cout << s1 << "ji" << std::endl;
+	s.resize(10);
+	s1.resize(10);
+	std::cout << s << "ji" << std::endl;
+	std::cout << s1 << "ji" << std::endl;
+}
+void test12(){
+	String s("123");
+	String s1("123");
+	String str = s + "Aaaa";
+	std::cout << s << std::endl;
+	std::cout << str << std::endl;
+	str = s + 'a';
+	std::cout << s << std::endl;
+	std::cout << str << std::endl;
+	str = s + s1;
+	std::cout << s << std::endl;
+	std::cout << s1 << std::endl;
+	std::cout << str << std::endl;
+}
 int main(){
-	test7();
+	test12();
 	system("pause");
 	return 0;
 }

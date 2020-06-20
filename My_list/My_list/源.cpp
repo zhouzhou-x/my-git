@@ -1,4 +1,6 @@
 #include<iostream>
+#include<stack>
+#include<list>
 using namespace std;
 template<class T>
 struct ListNode
@@ -9,7 +11,7 @@ struct ListNode
 
 	ListNode(const T& val = T())
 		:_value(val)
-		, _prev = nullptr
+		, _prev(nullptr)
 		, _next(nullptr)
 	{
 	}
@@ -109,11 +111,38 @@ public:
 			delete start;
 			start = next;
 		}
+		_header->_next = _header->_prev = _header;
 	}
 	~List(){
 		clear();
 		delete _header;
 		_header = nullptr;
+	}
+	size_t size() const{
+		size_t count = 0;
+		Node* cur = _header->_next;
+		while (cur != _header){
+			count++;
+			cur = cur->_next;
+		}
+		return count;
+	}
+	List(List<T>& lst)
+		:_header(new Node)
+	{
+		_header->_next = _header->_prev = _header;
+		List<T>::iterator it = lst.begin();
+		while (it != lst.end())
+		{
+			pushBack(*it);
+			it++;
+		}
+	}
+	//¸³ÖµÔËËã·ûÖØĞ´
+	//ÏÖ´úĞ´·¨
+	List& operator=(List<T>& lst){
+		swap(_header, lst._header)
+			return *this;
 	}
 private:
 	Node* _header;
@@ -144,8 +173,29 @@ void test(){
 	listprintf(lst);//23
 
 }
+void test1(){
+	List<int> lst;
+	lst.pushBack(1);
+	lst.pushBack(2);
+	lst.pushBack(3);
+	lst.pushBack(4);
+	size_t t = lst.size();
+	listprintf(lst);//1234
+	cout << t << endl;
+	List<int> lst1(lst);
+	listprintf(lst1);//1234
+}
+//ÈİÆ÷ÊÊÅäÆ÷
+void test2(){
+	stack<int> st;
+	st.push(1);
+	stack<int,list<int>> st1;
+	st.push(1);
+}
 int main(){
-	test();
+	//test();
+	//test1();
+	test2();
 	system("pause");
 	return 0;
 }

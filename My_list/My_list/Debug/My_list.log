@@ -1,0 +1,21 @@
+﻿生成启动时间为 2020/6/20 16:58:19。
+     1>项目“D:\my-git\My_list\My_list\My_list.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\vs\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "源.cpp"
+         源.cpp
+     1>d:\my-git\my_list\my_list\源.cpp(138): warning C4620: 未找到类型“Listiterator<T>”的“运算符 ++”后缀形式，使用前缀形式
+                 with
+                 [
+                     T=int
+                 ]
+                 d:\my-git\my_list\my_list\源.cpp(130): 编译类 模板 成员函数“List<int>::List(List<int> &)”时
+                 d:\my-git\my_list\my_list\源.cpp(185): 参见对正在编译的函数 模板 实例化“List<int>::List(List<int> &)”的引用
+                 d:\my-git\my_list\my_list\源.cpp(160): 参见对正在编译的类 模板 实例化“List<int>”的引用
+       Link:
+         D:\vs\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\my-git\My_list\Debug\My_list.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\my-git\My_list\Debug\My_list.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\my-git\My_list\Debug\My_list.lib" /MACHINE:X86 "Debug\源.obj"
+         My_list.vcxproj -> D:\my-git\My_list\Debug\My_list.exe
+     1>已完成生成项目“D:\my-git\My_list\My_list\My_list.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.75
